@@ -40,7 +40,7 @@ class PredError:
         print "actual prediction error: ", log_loss(self.y_test, self.lr.predict_proba(self.X_test)) 
         print "conditional error calculation: ", self.sort, self.calib
 
-def cross_entropy(p, q=None):
+def cross_entropy(p, q):
     if np.isnan(p).any() or np.isnan(q).any():
         raise ValueError("conditional mean should not be nan")
     idx = (p != 0) & (p != 1) & (q != 0) & (q != 1)
